@@ -1,0 +1,69 @@
+% Archivo modelo para copiar y pegar bloques de redaccion academica en LaTeX.
+% Este archivo NO esta incluido en main.tex.
+
+\chapter{Titulo principal del capitulo}
+Texto introductorio breve del capitulo.
+
+\section{Subtitulo de primer nivel}
+Parrafo de desarrollo del tema principal.
+
+\subsection{Subtitulo de segundo nivel}
+Parrafo que detalla un aspecto especifico.
+
+\subsubsection{Subtitulo de tercer nivel}
+Parrafo puntual para descripciones cortas.
+
+\section{Ejemplo de objetivos}
+\subsection*{Objetivo general}
+Redactar un objetivo general claro y medible.
+
+\subsection*{Objetivos especificos}
+\begin{enumerate}
+  \item Definir el alcance del estudio.
+  \item Identificar variables o componentes clave.
+  \item Evaluar resultados con criterios objetivos.
+\end{enumerate}
+
+\section{Ejemplo de lista con vietas}
+\begin{itemize}
+  \item Primer punto relevante.
+  \item Segundo punto relevante.
+  \item Tercer punto relevante.
+\end{itemize}
+
+\section{Modelo de tabla profesional (booktabs)}
+\begin{table}[htbp]
+\centering
+\caption{Tabla profesional de ejemplo}
+\label{tab:tabla_profesional}
+\begin{tabular}{@{}p{2cm}p{4cm}p{5.2cm}@{}}
+\toprule
+\textbf{Codigo} & \textbf{Requisito} & \textbf{Descripcion} \\
+\midrule
+RF01 & Consulta de stock & El sistema muestra disponibilidad en la tienda mas cercana. \\
+RF02 & Registro de pedido & El cliente selecciona, paga y obtiene codigo QR de recojo. \\
+RF03 & Aplicacion de combo & El carrito detecta combos y aplica el descuento automaticamente. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Ejemplo de figura}
+\begin{figure}[htbp]
+\centering
+% \includegraphics[width=0.7\textwidth]{figures/tu_imagen.png}
+\fbox{\parbox[c][4cm][c]{0.7\textwidth}{\centering Reemplace este recuadro por una imagen.}}
+\caption{Titulo breve de la figura}
+\label{fig:ejemplo}
+\end{figure}
+
+\section{Ejemplo de ecuacion}
+\begin{equation}
+E = mc^2
+\end{equation}
+
+\section{Ejemplo de cita}
+Texto con cita en formato IEEE [1].
+
+\section{Ejemplo de referencia interna}
+Como se observa en la Tabla~\ref{tab:tabla_profesional} y la Figura~\ref{fig:ejemplo},
+la presentacion mantiene consistencia formal.

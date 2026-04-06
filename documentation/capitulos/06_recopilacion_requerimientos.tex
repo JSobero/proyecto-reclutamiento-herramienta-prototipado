@@ -1,0 +1,49 @@
+\chapter{Recopilación de requerimientos}
+Para este proyecto nos enfocamos en Tambo, y para no quedarnos solo con lo que vemos como clientes, decidimos investigar más a fondo usando las técnicas que vimos en clase:
+
+\begin{itemize}
+    \item \textbf{Entrevistas}: Conversamos con un encargado de tienda para que nos explique las "reglas del negocio" que no se ven desde fuera, como el manejo de las ofertas que vencen rápido y cómo se actualiza el sistema cuando un producto se agota.
+    \item \textbf{Observación}: Estuvimos en un par de locales y notamos que el principal problema es la demora en las cajas. Mucha gente va solo por algo rápido, pero se queda atrapada detrás de personas que están pagando luz, agua o haciendo depósitos, lo que genera mucha frustración.
+    \item \textbf{Encuestas}: Aplicamos un formulario a 20 personas que compran seguido en Tambo. El resultado clave fue que el 70% ha ido a una tienda por una promoción específica y se dio con la sorpresa de que ya no había stock, perdiendo el tiempo del viaje.
+\end{itemize}
+
+Lo que concluimos como grupo: Necesitamos una solución que ayude a agilizar el pago y que le permita al cliente saber si hay stock antes de ir a la tienda física.
+
+\section{Matriz de requerimientos}
+A partir de los puntos críticos que encontramos, hemos armado nuestra matriz de requerimientos dividida en lo que el sistema debe hacer (Funcionales) y cómo debe ser su calidad (No Funcionales):
+
+\subsection{Requisitos Funcionales (RF)}
+\begin{table}[!htbp]
+\centering
+\small
+\caption{Matriz de requisitos funcionales}
+\label{tab:requisitos_funcionales}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{7.8cm}@{}}
+\toprule
+\textbf{Código} & \textbf{Requisito Funcional} & \textbf{¿Qué hace el sistema? (Descripción)} \\
+\midrule
+RF01 & Consulta de stock en vivo & El sistema debe permitir que el usuario busque un producto y vea al toque si hay stock en el Tambo más cercano usando su GPS. \\
+RF02 & Registro de pedidos & La app tiene que dejar que el cliente elija sus productos, los pague ahí mismo y genere un código QR para recogerlo sin hacer la cola de servicios. \\
+RF03 & Aplicación de Combos & El carrito de compras debe reconocer automáticamente si lo que elegiste forma un \string"Combo Tambo\string" y aplicar el descuento de una vez. \\
+RF04 & Alerta de reposición & El sistema tiene que avisar al personal de la tienda cuando un producto muy vendido (como hielo o promos de la semana) esté por agotarse. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Requisitos No Funcionales (RNF)}
+\begin{table}[!htbp]
+\centering
+\small
+\caption{Matriz de requisitos no funcionales}
+\label{tab:requisitos_no_funcionales}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{7.8cm}@{}}
+\toprule
+\textbf{Código} & \textbf{Categoría~(ISO~25010)} & \textbf{Requisito de Calidad} \\
+\midrule
+RNF01 & Rendimiento & La actualización de stock entre la tienda y la app no debe tardar más de 3 segundos para que la información sea real. \\
+RNF02 & Usabilidad & La interfaz debe ser súper sencilla, permitiendo que un cliente haga su pedido en un máximo de 4 clics. \\
+RNF03 & Seguridad & Por protección, el sistema no guardará los datos de las tarjetas y toda la transacción debe ir encriptada. \\
+RNF04 & Disponibilidad & Como Tambo atiende casi siempre, la plataforma debe estar operativa el 99.9\% del tiempo, incluso en las madrugadas. \\
+\bottomrule
+\end{tabular}
+\end{table}

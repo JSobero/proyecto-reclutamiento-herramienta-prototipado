@@ -1,0 +1,93 @@
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{fontspec}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{chngcntr}
+\usepackage{placeins}
+\usepackage{tocloft}
+\usepackage{xcolor}
+\usepackage{csquotes}
+\usepackage[spanish,es-nodecimaldot,es-tabla]{babel}
+\usepackage[backend=biber,style=ieee]{biblatex}
+
+\addbibresource{referencias/references.bib}
+\IfFontExistsTF{Arial}{%
+  \setmainfont{Arial}
+}{%
+  \setmainfont{Liberation Sans}
+}
+\onehalfspacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+\setlist[itemize]{leftmargin=1.5em}
+\setlist[enumerate]{leftmargin=1.8em}
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+\renewcommand{\cftsecdotsep}{\cftdotsep}
+\renewcommand{\cftsubsecdotsep}{\cftdotsep}
+\setlength{\cftbeforechapskip}{2pt}
+\setlength{\cftbeforesecskip}{1.5pt}
+\setlength{\cftbeforesubsecskip}{1pt}
+\renewcommand{\cfttoctitlefont}{\normalfont\bfseries\normalsize}
+\renewcommand{\cftloftitlefont}{\normalfont\bfseries\normalsize}
+\renewcommand{\cftlottitlefont}{\normalfont\bfseries\normalsize}
+\renewcommand{\cftaftertoctitle}{}
+\renewcommand{\cftafterloftitle}{}
+\renewcommand{\cftafterlottitle}{}
+\renewcommand{\contentsname}{ÍNDICE}
+\renewcommand{\listfigurename}{ÍNDICE DE FIGURAS}
+\renewcommand{\listtablename}{ÍNDICE DE TABLAS}
+\captionsetup{font=small,labelfont=bf}
+\makeatletter
+\def\fps@figure{htbp}
+\def\fps@table{htbp}
+\makeatother
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{1}
+\setcounter{totalnumber}{3}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[R]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+\counterwithout{figure}{chapter}
+\renewcommand{\thefigure}{\arabic{figure}}
+\counterwithout{table}{chapter}
+\renewcommand{\thetable}{\arabic{table}}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  citecolor=black,
+  pdftitle={\TituloTrabajo},
+  pdfauthor={\AutoresPdf}
+}
+
+\titleformat{\chapter}{\normalfont\bfseries\Large}{\thechapter.}{0.5em}{}
+\titlespacing*{\chapter}{0pt}{20pt}{14pt}
+\makeatletter
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\ifhmode\par\fi}{}{}
+\makeatother
+\titleformat{\section}{\normalfont\bfseries\large}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{0.5em}{}
