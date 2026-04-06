@@ -1,16 +1,21 @@
 \chapter{Recopilación de requerimientos}
-Para este proyecto nos enfocamos en Tambo, y para no quedarnos solo con lo que vemos como clientes, decidimos investigar más a fondo usando las técnicas que vimos en clase:
+La identificación de necesidades se realizó mediante un proceso sistemático de Investigación de Usuarios. 
+El objetivo fue comprender las motivaciones y comportamientos de los actores involucrados en el "Concurso de Personal" 
+para asegurar que el sistema sea útil, usable y valioso. Para ello usamos las técnicas que vimos en clase:
 
 \begin{itemize}
-    \item \textbf{Entrevistas}: Conversamos con un encargado de tienda para que nos explique las "reglas del negocio" que no se ven desde fuera, como el manejo de las ofertas que vencen rápido y cómo se actualiza el sistema cuando un producto se agota.
-    \item \textbf{Observación}: Estuvimos en un par de locales y notamos que el principal problema es la demora en las cajas. Mucha gente va solo por algo rápido, pero se queda atrapada detrás de personas que están pagando luz, agua o haciendo depósitos, lo que genera mucha frustración.
-    \item \textbf{Encuestas}: Aplicamos un formulario a 20 personas que compran seguido en Tambo. El resultado clave fue que el 70% ha ido a una tienda por una promoción específica y se dio con la sorpresa de que ya no había stock, perdiendo el tiempo del viaje.
+    \item \textbf{Entrevistas}: Se aplicó una guía de entrevista al Analista de Selección de Tambo. 
+    El propósito fue identificar las reglas de negocio críticas, como los criterios de exclusión geográfica y 
+    disponibilidad horaria.
+    \item \textbf{Observación}: Se utilizó una ficha de observación en las oficinas de Recursos Humanos para analizar la 
+    secuencia de tareas manuales y el uso de herramientas actuales (hojas de cálculo y correos electrónicos). 
+    Esto permitió detectar errores y retrasos en la coordinación de exámenes médicos
+    \item \textbf{Encuestas}: Se diseñó un cuestionario en Google Forms aplicado a una muestra de $20$ postulantes reales. 
+    Se identificó que el $70\%$ de los usuarios percibe el proceso actual como lento y con poca retroalimentación.
 \end{itemize}
 
-Lo que concluimos como grupo: Necesitamos una solución que ayude a agilizar el pago y que le permita al cliente saber si hay stock antes de ir a la tienda física.
-
 \section{Matriz de requerimientos}
-A partir de los puntos críticos que encontramos, hemos armado nuestra matriz de requerimientos dividida en lo que el sistema debe hacer (Funcionales) y cómo debe ser su calidad (No Funcionales):
+Basándonos en los hallazgos de la investigación, se definieron los requerimientos que alinean la tecnología con las necesidades del negocio de Tambo .
 
 \subsection{Requisitos Funcionales (RF)}
 \begin{table}[!htbp]
@@ -22,10 +27,11 @@ A partir de los puntos críticos que encontramos, hemos armado nuestra matriz de
 \toprule
 \textbf{Código} & \textbf{Requisito Funcional} & \textbf{¿Qué hace el sistema? (Descripción)} \\
 \midrule
-RF01 & Consulta de stock en vivo & El sistema debe permitir que el usuario busque un producto y vea al toque si hay stock en el Tambo más cercano usando su GPS. \\
-RF02 & Registro de pedidos & La app tiene que dejar que el cliente elija sus productos, los pague ahí mismo y genere un código QR para recogerlo sin hacer la cola de servicios. \\
-RF03 & Aplicación de Combos & El carrito de compras debe reconocer automáticamente si lo que elegiste forma un \string"Combo Tambo\string" y aplicar el descuento de una vez. \\
-RF04 & Alerta de reposición & El sistema tiene que avisar al personal de la tienda cuando un producto muy vendido (como hielo o promos de la semana) esté por agotarse. \\
+RF01 & Postulación Digital & El sistema debe permitir que el candidato cargue sus datos y CV mediante un formulario optimizado para dispositivos móviles. \\
+RF02 & Filtro de Pre-calificación & La plataforma debe descartar automáticamente a candidatos que no cumplan con el perfil mínimo de residencia y disponibilidad. \\
+RF03 & Seguimiento de Estados & El sistema debe permitir al Administrador de Tienda visualizar en tiempo real en qué etapa se encuentra cada postulante. \\
+RF04 & Gestión de Entrevistas & El sistema debe facilitar la programación de citas y enviar notificaciones automáticas vía correo a los candidatos aptos. \\
+RF05 & Generación de Contratos & El sistema debe generar automáticamente el borrador del contrato de trabajo en formato digital una vez seleccionado el candidato. \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -40,10 +46,10 @@ RF04 & Alerta de reposición & El sistema tiene que avisar al personal de la tie
 \toprule
 \textbf{Código} & \textbf{Categoría~(ISO~25010)} & \textbf{Requisito de Calidad} \\
 \midrule
-RNF01 & Rendimiento & La actualización de stock entre la tienda y la app no debe tardar más de 3 segundos para que la información sea real. \\
-RNF02 & Usabilidad & La interfaz debe ser súper sencilla, permitiendo que un cliente haga su pedido en un máximo de 4 clics. \\
-RNF03 & Seguridad & Por protección, el sistema no guardará los datos de las tarjetas y toda la transacción debe ir encriptada. \\
-RNF04 & Disponibilidad & Como Tambo atiende casi siempre, la plataforma debe estar operativa el 99.9\% del tiempo, incluso en las madrugadas. \\
+RNF01 & Seguridad & Por la Ley $N^\circ$ 29733, los datos de los postulantes deben estar encriptados y el acceso a los CV será restringido. \\
+RNF02 & Usabilidad & La interfaz debe ser intuitiva, permitiendo que un usuario complete su postulación en un tiempo máximo de $3$ minutos.\\
+RNF03 & Rendimiento & La actualización de estados en la base de datos no debe tardar más de $5$ segundos para garantizar información en tiempo real. \\
+RNF04 & Disponibilidad & La plataforma debe estar operativa el $99.9\%$ del tiempo para permitir postulaciones masivas durante las $24$ horas. \\
 \bottomrule
 \end{tabular}
 \end{table}
