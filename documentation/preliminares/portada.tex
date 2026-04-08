@@ -1,39 +1,46 @@
 \begin{titlepage}
 \thispagestyle{empty}
 \centering
-\vspace*{0.35cm}
 
+% Logo superior
+\vspace*{0.5cm}
 \IfFileExists{recursos/logo/logo.png}{%
-\includegraphics[width=8.5cm]{recursos/logo/logo.png}%
+    \includegraphics[width=6.5cm]{recursos/logo/logo.png}%
 }{%
-\fbox{\parbox{8.5cm}{\centering Logo institucional}}
+    \fbox{\parbox{6.5cm}{\centering Logo institucional}}
 }
 
-\vfill
+\vspace{1.5cm}
 
-{\fontsize{12}{14}\selectfont \Facultad\\[0.2cm]}
-{\fontsize{12}{14}\selectfont \Carrera}
+% Bloque Institucional
+{\Large \bfseries \Universidad \\[0.3cm]}
+{\large \scshape \Facultad \\[0.2cm]}
+{\normalsize \scshape \Carrera \par}
 
-\vfill
-{\fontsize{12}{14}\selectfont \SubtituloTrabajo}
+\vspace{2.5cm}
 
-\vspace{0.35cm}
-{\bfseries\fontsize{12}{14}\selectfont \TituloTrabajo}
-
-\vfill
-
-{\fontsize{12}{14}\selectfont \begin{tabular}{c}\Autores\end{tabular}}
-
-% \vfill
-% {\fontsize{12}{14}\selectfont \LineaGrado}
-
-\vfill
-{\fontsize{12}{14}\selectfont \Docentes}
+% Bloque del Título
+{\normalsize \SubtituloTrabajo \par}
+\vspace{0.5cm}
+{\LARGE \bfseries \TituloTrabajo \par}
 
 \vfill
 
-{\fontsize{12}{14}\selectfont \Ciudad -- \Pais\\[0.32cm]}
-% {\fontsize{12}{14}\selectfont \MesAprobacion; \AnioAprobacion}
-{\fontsize{12}{14}\selectfont \AnioAprobacion}
+% Bloque de Autores
+{\normalsize \textbf{Integrantes:}\\[0.3cm]
+\begin{tabular}{c}
+\Autores
+\end{tabular} \par}
+
+\vspace{1.5cm}
+
+% Bloque del Docente
+{\normalsize \textbf{\Docentes} \par}
+
+\vfill
+
+% Bloque de Lugar y Fecha
+{\normalsize \Ciudad, \Pais \\[0.2cm]
+\AnioAprobacion \par}
 
 \end{titlepage}

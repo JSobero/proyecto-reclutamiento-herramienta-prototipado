@@ -8,14 +8,20 @@ El sistema actual presenta limitaciones relacionadas con la alta carga operativa
 
 \section{Objetivos del Sistema}
 \textbf{Objetivo General}
-Diseñar un sistema de información que optimice el proceso de gestión del concurso de personal en la empresa Tambo, mejorando la eficiencia en la selección y contratación de candidatos.
+Diseñar e implementar un sistema de información que optimice el proceso de gestión del Concurso de Personal 
+en la empresa Tambo, reduciendo el Tiempo de contratación de 15-20 días a un máximo de 7 días hábiles 
+y la tasa de abandono de candidatos aptos del $35\%$ al $10\%$.
 
 \textbf{Objetivos Específicos}
 \begin{itemize}
-    \item Automatizar el proceso de filtrado de postulantes.
-    \item Centralizar la información de los candidatos en una única plataforma.
-    \item Reducir el tiempo del proceso de contratación.
-    \item Mejorar el seguimiento de los postulantes durante todas las etapas del proceso.
+    \item Implementar un módulo de filtrado automático que pre-califique el $100\%$ de las postulaciones 
+    en menos de 5 segundos por candidato, sin intervención manual del Analista.
+    \item Consolidar la información de postulantes de todas las tiendas en una única base de datos, 
+    eliminando el uso de hojas de cálculo locales en un plazo de 3 meses desde la implementación.
+    \item Alcanzar un Tiempo de contratación promedio de 5-7 días hábiles para perfiles operativos 
+    operativos en los primeros 6 meses de operación del sistema.
+    \item Permitir al Administrador de Tienda visualizar el estado actualizado de sus candidatos en menos de 5 
+    segundos desde cualquier dispositivo, sin necesidad de contactar al Analista.
     \item Facilitar la toma de decisiones mediante información organizada y accesible.
 \end{itemize}
 
@@ -24,16 +30,16 @@ Diseñar un sistema de información que optimice el proceso de gestión del conc
 El sistema abarcará las siguientes funcionalidades:
 
 \begin{itemize}
-    \item Publicación de convocatorias laborales.
-    \item Registro y almacenamiento de postulaciones.
-    \item Evaluación y filtrado de candidatos.
-    \item Gestión de entrevistas.
+    \item Publicación de convocatorias laborales en el portal del sistema.
+    \item Registro y almacenamiento de postulaciones con validación de datos.
+    \item Pre-calificación automática de candidatos mediante filtros lógicos configurables.
+    \item Gestión de estados del candidato a lo largo de todo el pipeline.
     \item Selección y contratación de personal.
 \end{itemize}
 
 El sistema no incluirá:
 \begin{itemize}
-    \item Procesos de capacitación interna del personal.
-    \item Gestión de desempeño posterior a la contratación.
-    \item Procesos administrativos externos al reclutamiento.
+    \item Procesos de inducción, onboarding o capacitación interna del personal contratado.
+    \item Gestión de desempeño posterior a la contratación (evaluaciones, KPIs del colaborador).
+    \item Procesos de nómina, liquidaciones o gestión salarial.
 \end{itemize}

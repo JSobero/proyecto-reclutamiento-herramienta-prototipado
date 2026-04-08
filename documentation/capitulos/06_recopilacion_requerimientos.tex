@@ -1,24 +1,28 @@
 \chapter{Recopilación de requerimientos}
-La identificación de necesidades se realizó mediante un proceso sistemático de Investigación de Usuarios. 
-El objetivo fue comprender las motivaciones y comportamientos de los actores involucrados en el "Concurso de Personal" 
-para asegurar que el sistema sea útil, usable y valioso. Para ello usamos las técnicas que vimos en clase:
+La identificación de necesidades se realizó mediante un proceso sistemático de Investigación de Usuarios orientado a
+ comprender las motivaciones, restricciones operativas y comportamientos de los actores involucrados en el Concurso de
+  Personal, con el objetivo de garantizar que el sistema sea útil, usable y técnicamente viable.  Para ello usamos las
+   técnicas que vimos en clase:
 
 \begin{itemize}
-    \item \textbf{Entrevistas}: Se aplicó una guía de entrevista al Analista de Selección de Tambo. 
-    El propósito fue identificar las reglas de negocio críticas, como los criterios de exclusión geográfica y 
-    disponibilidad horaria.
-    \item \textbf{Observación}: Se utilizó una ficha de observación en las oficinas de Recursos Humanos para analizar la 
-    secuencia de tareas manuales y el uso de herramientas actuales (hojas de cálculo y correos electrónicos). 
-    Esto permitió detectar errores y retrasos en la coordinación de exámenes médicos
-    \item \textbf{Encuestas}: Se diseñó un cuestionario en Google Forms aplicado a una muestra de $20$ postulantes reales. 
-    Se identificó que el $70\%$ de los usuarios percibe el proceso actual como lento y con poca retroalimentación.
+    \item \textbf{Entrevistas}: Se aplicó una guía de entrevista al Analista de Selección de Tambo 
+    (duración: 45 minutos). Se identificaron las reglas de negocio críticas: criterio de exclusión geográfica
+     (radio máximo de 2 km desde la tienda), disponibilidad obligatoria de turno partido, y tiempo máximo de 
+     espera aceptable para el candidato (48 horas para recibir retroalimentación).
+    \item \textbf{Observación}: Se utilizó una ficha de observación durante 3 jornadas en las oficinas de Recursos Humanos.
+     Se documentó la secuencia exacta de tareas manuales: descarga de CVs, registro en Excel, llamadas telefónicas para 
+     coordinar entrevistas. Se detectaron errores recurrentes en el registro de datos y retrasos de 2-3 días en la coordinación 
+     con clínicas médicas.
+    \item \textbf{Encuestas}: Se diseñó un cuestionario en Google Forms aplicado a 20 postulantes reales 
+    del último proceso de selección. Resultados clave: el $70\%$ percibe el proceso actual como lento,
+     el $65\%$ no recibió retroalimentación sobre su postulación.
 \end{itemize}
 
 \section{Matriz de requerimientos}
 Basándonos en los hallazgos de la investigación, se definieron los requerimientos que alinean la tecnología con las necesidades del negocio de Tambo .
 
 \subsection{Requisitos Funcionales (RF)}
-\begin{table}[!htbp]
+\begin{table}[H]
 \centering
 \small
 \caption{Matriz de requisitos funcionales}
@@ -27,29 +31,57 @@ Basándonos en los hallazgos de la investigación, se definieron los requerimien
 \toprule
 \textbf{Código} & \textbf{Requisito Funcional} & \textbf{¿Qué hace el sistema? (Descripción)} \\
 \midrule
-RF01 & Postulación Digital & El sistema debe permitir que el candidato cargue sus datos y CV mediante un formulario optimizado para dispositivos móviles. \\
-RF02 & Filtro de Pre-calificación & La plataforma debe descartar automáticamente a candidatos que no cumplan con el perfil mínimo de residencia y disponibilidad. \\
-RF03 & Seguimiento de Estados & El sistema debe permitir al Administrador de Tienda visualizar en tiempo real en qué etapa se encuentra cada postulante. \\
-RF04 & Gestión de Entrevistas & El sistema debe facilitar la programación de citas y enviar notificaciones automáticas vía correo a los candidatos aptos. \\
-RF05 & Generación de Contratos & El sistema debe generar automáticamente el borrador del contrato de trabajo en formato digital una vez seleccionado el candidato. \\
+RF01 & Postulación Digital & El sistema permite al candidato registrar sus datos personales, CV (PDF ≤ 5 MB), residencia 
+y disponibilidad horaria mediante un formulario web responsivo, optimizado para dispositivos móviles. \\
+RF02 & Filtro de Pre-calificación & El sistema evalúa automáticamente cada postulación contra los criterios configurados (distancia máxima de residencia en km, disponibilidad de turno) 
+y asigna el estado 'Pre-calificado' o 'Descartado - No cumple perfil' en menos de 5 segundos. 
+El motivo de descarte queda registrado. \\
+RF03 & Seguimiento de Estados & El sistema mantiene y muestra en tiempo real el estado de cada postulante en el pipeline
+ (8 estados: Postulado, Pre-calificado, Descartado, En entrevista, Seleccionado, En verificación, Contratado, Archivado).
+ El Administrador de Tienda visualiza solo los candidatos de su tienda. \\
+RF04 & Gestión y notificación de Entrevistas & El sistema permite al Analista programar entrevistas grupales y presenciales. 
+Envía notificaciones automáticas por correo electrónico al candidato con fecha, hora y lugar (o link de videollamada) \\
+RF05 & Generación de Contratos & El sistema genera automáticamente el borrador del contrato de trabajo en formato digital 
+(PDF editable) con los datos del candidato seleccionado (nombre, DNI, cargo, tienda, sueldo, turno, fecha de inicio)
+ una vez aprobada la selección. \\
+RF06 & Gestión de usuarios y roles & El sistema gestiona cuatro roles de acceso con permisos diferenciados: 
+Administrador del Sistema (acceso total), Analista de Selección (gestión de candidatos y convocatorias), 
+Administrador de Tienda (visualización de candidatos de su tienda y registro de decisiones), 
+Postulante (postulación y consulta de su propio estado). \\
+RF07 & Notificaciones de retroalimentación al postulante & El sistema envía notificaciones automáticas al postulante 
+en cada cambio de estado relevante: confirmación de postulación recibida, resultado del filtro automático, convocatoria 
+a entrevista, y resultado final del proceso (apto para contratación / proceso concluido sin ser seleccionado). \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Requisitos No Funcionales (RNF)}
-\begin{table}[!htbp]
+\begin{table}[H] % <--- Se reemplazó [!htbp] por [H]
 \centering
 \small
 \caption{Matriz de requisitos no funcionales}
 \label{tab:requisitos_no_funcionales}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{7.8cm}@{}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.8cm}
+                >{\raggedright\arraybackslash}p{3.5cm}
+                >{\raggedright\arraybackslash}p{2.5cm}
+                >{\raggedright\arraybackslash}p{6cm}@{}}
 \toprule
-\textbf{Código} & \textbf{Categoría~(ISO~25010)} & \textbf{Requisito de Calidad} \\
+\textbf{Código} & \textbf{Categoría~(ISO~25010)} & \textbf{RF relacionado} & \textbf{Requisito de Calidad} \\
 \midrule
-RNF01 & Seguridad & Por la Ley $N^\circ$ 29733, los datos de los postulantes deben estar encriptados y el acceso a los CV será restringido. \\
-RNF02 & Usabilidad & La interfaz debe ser intuitiva, permitiendo que un usuario complete su postulación en un tiempo máximo de $3$ minutos.\\
-RNF03 & Rendimiento & La actualización de estados en la base de datos no debe tardar más de $5$ segundos para garantizar información en tiempo real. \\
-RNF04 & Disponibilidad & La plataforma debe estar operativa el $99.9\%$ del tiempo para permitir postulaciones masivas durante las $24$ horas. \\
+RNF01 & Seguridad & RF01, RF06 & Protección de datos personales de postulantes conforme a la Ley $N^\circ$ 29733 
+(Ley de Protección de Datos Personales del Perú). \\
+RNF02 & Usabilidad & RF01 & La interfaz del formulario de postulación debe ser completada por un postulante sin 
+experiencia técnica en ≤ 3 minutos. \\
+RNF03 & Rendimiento & RF02, RF03 & El sistema debe responder a las operaciones críticas en un tiempo menor a 3 segundos 
+bajo una carga concurrente de hasta 50 usuarios. \\
+RNF04 & Disponibilidad / Confiabilidad & RF01, RF02, RF03, RF04 & La plataforma debe estar operativa continuamente 
+para permitir postulaciones y consultas en cualquier momento del día. \\
+RNF05 & Escalabilidad & RF01, RF02, RF03 & El sistema debe soportar el crecimiento del volumen de usuarios 
+y postulaciones conforme Tambo expande sus operaciones, sin requerir rediseño arquitectónico. \\
+RNF06 & Compatibilidad / Portabilidad & RF01, RF03, RF04 & El sistema debe funcionar correctamente en los dispositivos y 
+navegadores que usan los actores del proceso, garantizando una experiencia consistente. \\
+RNF07 & Mantenibilidad & Todos los RF & El sistema debe poder ser modificado, corregido y extendido por 
+el equipo de desarrollo con un esfuerzo razonable y sin riesgo de regresiones. \\
 \bottomrule
 \end{tabular}
 \end{table}
