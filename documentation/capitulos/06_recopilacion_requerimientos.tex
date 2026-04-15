@@ -16,7 +16,8 @@ El flujo de negocio se ha descompuesto en tres subprocesos clave para su automat
 
 \subsection{Actividades y Reglas de Negocio}
 
-A continuación, se presentan las actividades críticas y las Reglas de Negocio que el sistema debe validar para asegurar la operatividad de las tiendas:
+% Ajuste de espaciado vertical para las tablas
+\renewcommand{\arraystretch}{2.2} 
 
 \begin{table}[H]
 \centering
@@ -24,7 +25,7 @@ A continuación, se presentan las actividades críticas y las Reglas de Negocio 
 \toprule
 \textbf{Actividad de Negocio} & \textbf{Reglas de Negocio (Políticas de Tambo)} \\
 \midrule
-Triaje de Postulantes & \textbf{Regla de Cercanía:} El postulante debe residir en un radio no mayor a 2 km de la tienda solicitante para garantizar la puntualidad. \\
+Triaje de Postulantes & \textbf{Regla de Cercanía:} El postulante debe residir en un radio no mayor a 2 km de la tienda solicitante. \\
 Validación de Horarios & \textbf{Regla de Disponibilidad:} Requisito indispensable de disponibilidad para turnos rotativos y "partidos". \\
 Atención al Postulante & \textbf{Regla de Retroalimentación (SLA):} Todo cambio de estado debe comunicarse al candidato en un plazo máximo de 48 horas. \\
 Carga de Documentos & \textbf{Regla de Formato:} El currículo digital debe cargarse exclusivamente en formato PDF con un peso máximo de 5 MB. \\
@@ -62,14 +63,14 @@ RF06 & Feedback Automático & Notifica al postulante ante cada cambio de estado,
 \label{tab:requisitos_no_funcionales}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{8.7cm}@{}}
 \toprule
-\textbf{Código} & \textbf{Categoría} & \textbf{Requisito de Calidad} \\
+\textbf{Código} & \textbf{Categoría (ISO 25010)} & \textbf{Requisito de Calidad} \\
 \midrule
-RNF01 & Seguridad & Garantizar la confidencialidad bajo la \textbf{Ley N$^\circ$ 29733 (Perú)}. \\
-RNF02 & Usabilidad & El prototipo debe ser intuitivo, permitiendo el registro completo en $\le 3$ minutos. \\
-RNF03 & Rendimiento & El tiempo de respuesta no debe exceder los 3 segundos ante cargas concurrentes. \\
-RNF04 & Disponibilidad & La plataforma debe garantizar operatividad 24/7 para procesos de postulación. \\
-RNF05 & Escalabilidad & Capacidad de soportar el incremento de datos conforme Tambo aperture nuevas tiendas. \\
-RNF06 & Compatibilidad & Funcionamiento consistente en navegadores móviles y de escritorio. \\
+RNF01 & Seguridad & Garantizar la confidencialidad bajo la \textbf{Ley N$^\circ$ 29733 (Ley de Protección de Datos Personales del Perú)}. \\
+RNF02 & Usabilidad & El prototipo debe ser intuitivo, permitiendo el registro completo por parte del postulante en $\le 3$ minutos. \\
+RNF03 & Rendimiento & El tiempo de respuesta del servidor no debe exceder los 3 segundos ante cargas concurrentes. \\
+RNF04 & Disponibilidad & La plataforma debe garantizar operatividad 24/7 para procesos de postulación ininterrumpidos. \\
+RNF05 & Escalabilidad & Capacidad de soportar el incremento de datos conforme Tambo aperture nuevas tiendas a nivel nacional. \\
+RNF06 & Compatibilidad & Funcionamiento consistente en navegadores móviles y de escritorio (Chrome, Safari, Edge). \\
 \bottomrule
 \end{tabular}
 \end{table}
