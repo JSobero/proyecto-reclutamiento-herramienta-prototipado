@@ -12,24 +12,20 @@ Este proceso macro comprende el flujo integral para la captación de talento, de
 
 \subsection{Subprocesos Identificados}
 
-El flujo de negocio se ha descompuesto en tres subprocesos clave para su automatización: Gestión de Convocatorias (registro de necesidades y publicación), Evaluación de Candidatos (recepción de perfiles y filtrado lógico) y Formalización de Contratación (verificación de antecedentes y generación de contratos bajo la normativa laboral peruana).
+El flujo de negocio se ha descompuesto en tres subprocesos clave para su automatización: Gestión de Convocatorias, Evaluación de Candidatos y Formalización de Contratación.
 
 \subsection{Actividades y Reglas de Negocio}
 
-% Ajuste de espaciado vertical para las tablas
-\renewcommand{\arraystretch}{2.2} 
-
+\renewcommand{\arraystretch}{1.5} 
 \begin{table}[H]
 \centering
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{10cm}@{}}
-\toprule
-\textbf{Actividad de Negocio} & \textbf{Reglas de Negocio (Políticas de Tambo)} \\
-\midrule
-Triaje de Postulantes & \textbf{Regla de Cercanía:} El postulante debe residir en un radio no mayor a 2 km de la tienda solicitante. \\
-Validación de Horarios & \textbf{Regla de Disponibilidad:} Requisito indispensable de disponibilidad para turnos rotativos y "partidos". \\
-Atención al Postulante & \textbf{Regla de Retroalimentación (SLA):} Todo cambio de estado debe comunicarse al candidato en un plazo máximo de 48 horas. \\
-Carga de Documentos & \textbf{Regla de Formato:} El currículo digital debe cargarse exclusivamente en formato PDF con un peso máximo de 5 MB. \\
-\bottomrule
+\begin{tabular}{|l|p{10cm}|}
+\hline
+\textbf{Actividad de Negocio} & \textbf{Reglas de Negocio (Políticas de Tambo)} \\ \hline
+Triaje de Postulantes & \textbf{Regla de Cercanía:} El postulante debe residir en un radio no mayor a 2 km de la tienda solicitante. \\ \hline
+Validación de Horarios & \textbf{Regla de Disponibilidad:} Requisito indispensable de disponibilidad para turnos rotativos y "partidos". \\ \hline
+Atención al Postulante & \textbf{Regla de Retroalimentación (SLA):} Todo cambio de estado debe comunicarse en un plazo máximo de 48 horas. \\ \hline
+Carga de Documentos & \textbf{Regla de Formato:} El currículo debe cargarse en formato PDF con un peso máximo de 5 MB. \\ \hline
 \end{tabular}
 \end{table}
 
@@ -41,17 +37,15 @@ Carga de Documentos & \textbf{Regla de Formato:} El currículo digital debe carg
 \centering
 \caption{Matriz de requisitos funcionales (6 RF)}
 \label{tab:requisitos_funcionales}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{7.8cm}@{}}
-\toprule
-\textbf{Código} & \textbf{Requisito Funcional} & \textbf{Vínculo con el Negocio} \\
-\midrule
-RF01 & Postulación Digital & Automatiza la recepción y validación de datos del subproceso de Convocatoria. \\
-RF02 & Filtro de Pre-calificación & Ejecuta la lógica de las Reglas de Cercanía y Disponibilidad de forma instantánea ($<$ 5 segundos). \\
-RF03 & Seguimiento de Pipeline & Permite al Analista y Administrador visualizar el estado real de cada vacante en tiempo real. \\
-RF04 & Gestión de Entrevistas & Automatiza la programación de citas y envío de notificaciones de evaluación. \\
-RF05 & Generación Documental & Agiliza la formalización de la contratación mediante borradores de contratos automatizados. \\
-RF06 & Feedback Automático & Notifica al postulante ante cada cambio de estado, cumpliendo la regla de SLA de 48 horas. \\
-\bottomrule
+\begin{tabular}{|l|l|p{7.5cm}|}
+\hline
+\textbf{Código} & \textbf{Requisito Funcional} & \textbf{Vínculo con el Negocio} \\ \hline
+RF01 & Postulación Digital & Automatiza la recepción y validación de datos. \\ \hline
+RF02 & Filtro de Pre-calificación & Ejecuta la lógica de las Reglas de Cercanía y Disponibilidad. \\ \hline
+RF03 & Seguimiento de Pipeline & Permite visualizar el estado real de cada vacante. \\ \hline
+RF04 & Gestión de Entrevistas & Automatiza la programación de citas y envío de notificaciones. \\ \hline
+RF05 & Generación Documental & Agiliza la formalización mediante borradores automatizados. \\ \hline
+RF06 & Feedback Automático & Notifica al postulante ante cada cambio de estado. \\ \hline
 \end{tabular}
 \end{table}
 
@@ -61,16 +55,37 @@ RF06 & Feedback Automático & Notifica al postulante ante cada cambio de estado,
 \centering
 \caption{Matriz de requisitos no funcionales (6 RNF)}
 \label{tab:requisitos_no_funcionales}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{8.7cm}@{}}
-\toprule
-\textbf{Código} & \textbf{Categoría (ISO 25010)} & \textbf{Requisito de Calidad} \\
-\midrule
-RNF01 & Seguridad & Garantizar la confidencialidad bajo la \textbf{Ley N$^\circ$ 29733 (Ley de Protección de Datos Personales del Perú)}. \\
-RNF02 & Usabilidad & El prototipo debe ser intuitivo, permitiendo el registro completo por parte del postulante en $\le 3$ minutos. \\
-RNF03 & Rendimiento & El tiempo de respuesta del servidor no debe exceder los 3 segundos ante cargas concurrentes. \\
-RNF04 & Disponibilidad & La plataforma debe garantizar operatividad 24/7 para procesos de postulación ininterrumpidos. \\
-RNF05 & Escalabilidad & Capacidad de soportar el incremento de datos conforme Tambo aperture nuevas tiendas a nivel nacional. \\
-RNF06 & Compatibilidad & Funcionamiento consistente en navegadores móviles y de escritorio (Chrome, Safari, Edge). \\
-\bottomrule
+\begin{tabular}{|l|l|p{8cm}|}
+\hline
+\textbf{Código} & \textbf{Categoría (ISO 25010)} & \textbf{Requisito de Calidad} \\ \hline
+RNF01 & Seguridad & Garantizar la confidencialidad bajo la Ley N$^\circ$ 29733 (Protección de Datos Personales). \\ \hline
+RNF02 & Usabilidad & Registro completo por parte del postulante en $\le 3$ minutos. \\ \hline
+RNF03 & Rendimiento & El tiempo de respuesta del servidor no debe exceder los 3 segundos. \\ \hline
+RNF04 & Disponibilidad & Garantizar operatividad 24/7 para procesos de postulación ininterrumpidos. \\ \hline
+RNF05 & Escalabilidad & Soporte para el incremento de datos conforme Tambo apertura nuevas tiendas. \\ \hline
+RNF06 & Compatibilidad & Funcionamiento consistente en navegadores móviles y de escritorio. \\ \hline
 \end{tabular}
 \end{table}
+
+\subsection{Matriz de Trazabilidad de Requisitos (RF vs. RNF)}
+
+Esta matriz establece la conexión técnica entre las funcionalidades del sistema y los atributos de calidad exigidos por la organización.
+
+\begin{table}[H]
+\centering
+\caption{Cuadro comparativo de conexión RF - RNF}
+\label{tab:trazabilidad}
+\small
+\begin{tabularx}{\textwidth}{|X|c|c|c|c|c|c|}
+\hline
+\textbf{Requisito Funcional} & \textbf{RNF01} & \textbf{RNF02} & \textbf{RNF03} & \textbf{RNF04} & \textbf{RNF05} & \textbf{RNF06} \\ \hline
+RF01: Postulación Digital        & X & X &   & X & X & X \\ \hline
+RF02: Filtro de Pre-calificación &   &   & X & X &   &   \\ \hline
+RF03: Seguimiento de Pipeline    & X & X &   & X &   &   \\ \hline
+RF04: Gestión de Entrevistas     &   & X &   &   &   & X \\ \hline
+RF05: Generación Documental      & X &   & X &   &   &   \\ \hline
+RF06: Feedback Automático        &   &   & X & X &   &   \\ \hline
+\end{tabularx}
+\end{table}
+
+
